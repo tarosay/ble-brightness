@@ -4,6 +4,7 @@ bluetooth.onBluetoothConnected(function () {
 bluetooth.onBluetoothDisconnected(function () {
     basic.showIcon(IconNames.Heart)
 })
+led.setBrightness(10)
 basic.showIcon(IconNames.Heart)
 bluetooth.startUartService()
 basic.forever(function () {
