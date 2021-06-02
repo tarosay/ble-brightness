@@ -4,10 +4,21 @@ bluetooth.onBluetoothConnected(function () {
 bluetooth.onBluetoothDisconnected(function () {
     basic.showIcon(IconNames.Heart)
 })
-led.setBrightness(10)
-basic.showIcon(IconNames.Heart)
+input.onButtonPressed(Button.A, function () {
+    basic.showNumber(input.lightLevel())
+})
+input.onButtonPressed(Button.B, function () {
+    pins.servoWritePin(AnalogPin.P1, 20)
+    basic.pause(480)
+    pins.servoWritePin(AnalogPin.P1, 147)
+})
 bluetooth.startUartService()
+basic.showIcon(IconNames.Happy)
 basic.forever(function () {
-    bluetooth.uartWriteNumber(input.lightLevel())
-    basic.pause(500)
+    basic.pause(1000)
+    if (input.lightLevel() > 2) {
+        pins.servoWritePin(AnalogPin.P1, 20)
+        basic.pause(480)
+        pins.servoWritePin(AnalogPin.P1, 147)
+    }
 })
