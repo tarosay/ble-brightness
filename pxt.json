@@ -1,5 +1,5 @@
 {
-    "name": "光センサの値",
+    "name": "明るさをBLEで送信",
     "description": "",
     "dependencies": {
         "core": "*",
